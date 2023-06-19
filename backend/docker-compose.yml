@@ -1,0 +1,69 @@
+version: '3'
+
+services:
+  hadoop:
+    image: hadoop-3.0.0
+    container_name: hadoop-docker-3.0.0
+    # 其他配置...
+    hostname: hadoop
+    environment:
+      - HADOOP_NODE_TYPE=master
+    ports:
+      - "50070:50070"
+
+  spark:
+    image: spark-3.0.0
+    container_name: spark-docker-3.0.0
+    hostname: spark
+    environment:
+      - SPARK_NODE_TYPE=master
+      - HADOOP_MASTER_HOST=hadoop
+    external_links:
+      - hadoop-docker-3.0.0
+    ports:
+      - "8088:8080"
+  
+  # hive:
+  #   image: hive-2.3.9
+  #   container_name: hive-docker-2.3.9
+  #   hostname: hive
+  #   environment:
+  #     - HIVE_NODE_TYPE=metastore
+  #     - HADOOP_VERSION=3.0.0
+  #     - ZOOKEEPER_HOSTS=zookeeper:2181
+  #   external_links:
+  #     - hadoop-docker-3.0.0
+  #     - zookeeper-docker-3.4.6
+
+  # hbase:
+  #   image: hbase-2.0.6
+  #   container_name: hbase-docker-2.0.6
+  #   hostname : hbase
+  #   environment:
+  #     - HADOOP_HOME=/opt/hadoop
+  #     - ZOOKEEPER_QUORUM=zookeeper
+  #   external_links:
+  #     - hadoop-docker-3.0.0
+  #     - zookeeper-docker-3.4.6
+
+  # kafka:
+  #   image: kafka-2.0.1
+  #   container_name: kafka-docker-2.0.1
+  #   hostname : kafka
+  #   environment:
+  #     - KAFKA_NODE_ID=1
+  #     - ZOOKEEPER_SERVERS=zookeeper:2181
+  #   external_links:
+  #     - zookeeper-docker-3.4.6
+  
+  # zookeeper:
+  #   image: zookeeper-3.4.6
+  #   container_name: zookeeper-docker-3.4.6
+  #   # 其他配置...
+  #   hostname: zookeeper
+  #   environment:
+  #     - HADOOP_HOME=/opt/hadoop
+  #   external_links:
+  #     - hadoop-docker-3.0.0
+
+

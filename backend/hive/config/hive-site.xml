@@ -1,0 +1,69 @@
+<configuration>
+  <!-- Hive Metastore Configuration -->
+  <property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:derby:;databaseName=metastore/metastore_db;create=true</value>
+    <description>JDBC connect string for a JDBC metastore</description>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>org.apache.derby.jdbc.EmbeddedDriver</value>
+    <description>Driver class name for a JDBC metastore</description>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>APP</value>
+    <description>Username to use against metastore database</description>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>mine</value>
+    <description>Password to use against metastore database</description>
+  </property>
+
+  <!-- Hive Warehouse Directory -->
+  <property>
+    <name>hive.metastore.warehouse.dir</name>
+    <value>/user/hive/warehouse</value>
+    <description>Location of default database for the warehouse</description>
+  </property>
+
+  <!-- Hadoop Configuration -->
+  <property>
+    <name>hive.exec.scratchdir</name>
+    <value>/tmp/hive</value>
+    <description>Scratch space for Hive jobs</description>
+  </property>
+  <property>
+    <name>hive.querylog.location</name>
+    <value>/var/log/hive</value>
+    <description>Location to store Hive query logs</description>
+  </property>
+  <property>
+    <name>hive.exec.local.scratchdir</name>
+    <value>/tmp/hive</value>
+    <description>Local scratch space for Hive jobs</description>
+  </property>
+  <property>
+    <name>hive.downloaded.resources.dir</name>
+    <value>/tmp/hive</value>
+    <description>Temporary directory for downloaded resources</description>
+  </property>
+
+  <!-- Hive Execution Parameters -->
+  <property>
+    <name>hive.execution.engine</name>
+    <value>mr</value>
+    <description>Execution engine for Hive queries (mr, tez, spark)</description>
+  </property>
+  <property>
+    <name>hive.vectorized.execution.enabled</name>
+    <value>true</value>
+    <description>Enable vectorized query execution</description>
+  </property>
+  <property>
+    <name>hive.vectorized.execution.reduce.enabled</name>
+    <value>true</value>
+    <description>Enable vectorized execution for reduce tasks</description>
+  </property>
+</configuration>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- HBase主目录 -->
+  <property>
+    <name>hbase.rootdir</name>
+    <value>hdfs://localhost:9000/hbase</value>
+  </property>
+  
+  <!-- ZooKeeper的连接信息 -->
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>localhost</value>
+  </property>
+  
+  <property>
+    <name>hbase.zookeeper.property.clientPort</name>
+    <value>2181</value>
+  </property>
+  
+  <!-- 自定义的HBase配置 -->
+  <!-- 例如，更改region的复制数量 -->
+  <property>
+    <name>hbase.regionserver.replication</name>
+    <value>3</value>
+  </property>
+  
+  <!-- 额外的配置 -->
+  <!-- 例如，开启HBase的安全认证 -->
+  <property>
+    <name>hbase.security.authentication</name>
+    <value>kerberos</value>
+  </property>
+  
+</configuration>
